@@ -28,7 +28,7 @@ const Home = () => {
           // // name will not update to Luigi, it stays with Mario
           // name
 
-          // since useState is used, name will update to Luigi once button is clicked
+          // since useState is used, name and age will update to Luigi once button is clicked
           `${name} is ${age} years old.`
         }
       </p>
