@@ -6,14 +6,16 @@ const Home = () => {
 
   // Utilize useState instead to become reactive
   const [name, setName] = useState("Mario");
+  const [age, setAge] = useState(25);
 
   const handleClick = () => {
     // // name value changes to Luigi when the button below is clicked
     // name = "Luigi";
     // console.log(name);
 
-    // Set name to Luigi once button is clicked
+    // Set name and age once button is clicked
     setName("Luigi");
+    setAge(30);
     console.log(name);
   };
 
@@ -27,7 +29,7 @@ const Home = () => {
           // name
 
           // since useState is used, name will update to Luigi once button is clicked
-          name
+          `${name} is ${age} years old.`
         }
       </p>
       <button onClick={handleClick}>Click me</button>
