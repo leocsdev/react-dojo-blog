@@ -6,20 +6,26 @@ const Home = () => {
     {
       title: "My New Website",
       body: "Lorem ipsum...",
-      author: " mario",
+      author: "mario",
       id: 1,
     },
     {
       title: "Welcome Party!",
       body: "Lorem ipsum...",
-      author: " luigi",
+      author: "luigi",
       id: 2,
     },
     {
       title: "Web dev top tips",
       body: "Lorem ipsum...",
-      author: " princess",
+      author: "princess",
       id: 3,
+    },
+    {
+      title: "Web dev top tips",
+      body: "Lorem ipsum...",
+      author: "mario",
+      id: 4,
     },
   ]);
 
@@ -27,6 +33,12 @@ const Home = () => {
     <div className="home">
       {/* Set property names (props, title), and send it to BlogList component */}
       <BlogList blogs={blogs} title="All Blogs" />
+
+      {/* Show blogs only from mario */}
+      <BlogList
+        blogs={blogs.filter((blog) => blog.author === "mario")}
+        title="Mario's Blogs"
+      />
     </div>
   );
 };
