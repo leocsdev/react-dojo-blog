@@ -1,4 +1,3 @@
-// receive the blogs props from parent component (Home)
 const BlogList = ({ blogs, title, handleDelete }) => {
   return (
     <div className="blog-list">

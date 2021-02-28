@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import BlogList from "./BlogList";
 
 const Home = () => {
@@ -30,13 +30,14 @@ const Home = () => {
   ]);
 
   const handleDelete = (id) => {
-    // Filter out blog to be removed from blogs
-
     const newBlogs = blogs.filter((blog) => blog.id !== id);
-
-    // Render new list of blogs after removing the blog deleted
     setBlogs(newBlogs);
   };
+
+  // run a function everytime there's a re-render (happens in initial reload or theres update in the state )
+  useEffect(() => {
+    console.log("Use effect ran.");
+  });
 
   return (
     <div className="home">
