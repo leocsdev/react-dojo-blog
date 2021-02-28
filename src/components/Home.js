@@ -1,38 +1,39 @@
 import { useState } from "react";
 
 const Home = () => {
-  // // name var is not reactive
-  // let name = "Mario";
-
-  // Utilize useState instead to become reactive
-  const [name, setName] = useState("Mario");
-  const [age, setAge] = useState(25);
-
-  const handleClick = () => {
-    // // name value changes to Luigi when the button below is clicked
-    // name = "Luigi";
-    // console.log(name);
-
-    // Set name and age once button is clicked
-    setName("Luigi");
-    setAge(30);
-    console.log(name);
-  };
+  const [blogs, setBlogs] = useState([
+    {
+      title: "My New Website",
+      body: "Lorem ipsum...",
+      author: " mario",
+      id: 1,
+    },
+    {
+      title: "Welcome Party!",
+      body: "Lorem ipsum...",
+      author: " luigi",
+      id: 2,
+    },
+    {
+      title: "Web dev top tips",
+      body: "Lorem ipsum...",
+      author: " princess",
+      id: 3,
+    },
+  ]);
 
   return (
     <div className="home">
-      <h2>Homepage</h2>
+      {
+        // Loop through blogs
+        blogs.map((blog) => (
+          <div className="blog-preview" key={blog.id}>
+            <h2>{blog.title}</h2>
 
-      <p>
-        {
-          // // name will not update to Luigi, it stays with Mario
-          // name
-
-          // since useState is used, name and age will update to Luigi once button is clicked
-          `${name} is ${age} years old.`
-        }
-      </p>
-      <button onClick={handleClick}>Click me</button>
+            <p>Written by: {blog.author}</p>
+          </div>
+        ))
+      }
     </div>
   );
 };
