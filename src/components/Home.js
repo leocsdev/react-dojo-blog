@@ -29,16 +29,18 @@ const Home = () => {
     },
   ]);
 
+  const handleDelete = (id) => {
+    // Filter out blog to be removed from blogs
+
+    const newBlogs = blogs.filter((blog) => blog.id !== id);
+
+    // Render new list of blogs after removing the blog deleted
+    setBlogs(newBlogs);
+  };
+
   return (
     <div className="home">
-      {/* Set property names (props, title), and send it to BlogList component */}
-      <BlogList blogs={blogs} title="All Blogs" />
-
-      {/* Show blogs only from mario */}
-      <BlogList
-        blogs={blogs.filter((blog) => blog.author === "mario")}
-        title="Mario's Blogs"
-      />
+      <BlogList blogs={blogs} title="All Blogs" handleDelete={handleDelete} />
     </div>
   );
 };
